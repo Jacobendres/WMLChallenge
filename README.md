@@ -1,1 +1,10 @@
 # WMLChallenge
+To run the implementation cd into the project folder, then use mvn exec:java to run the main method and interact with the ticket service through commandline io or use mvn test to execute the unit tests provided.
+
+ASSUMPTIONS: I made as few assumptions as I could about what a good seat is because not knowing what kind of theater it is means the best seat could be anywhere (anywhere in the front row for a play vs near the middle for live music vs some prefer the back row at movies). 
+In order to avoid this assumption when a user asks for a single seat they are propted to pick a row with atleast one available seat then pick a seat in that row (they pick those things seperately so that they are not overwhelmed by every possible seat at once). 
+However, requesting multiple seats gives the closest seats to the front (starting on the left) this change was made for two reasons. 
+The first is to again avoid bombarding the user with information (all possible seat combinations can be huge). The second is I assumed that many groups being seated together is more important than a few groups being able to sit exactly wher they want so they get packed effienctly. Another assumption made about groups of seats is that getting seats is preferable to not getting seats when the seats cannot be grouped so if a group is immpossible the user recieves seats scattered throughout the theater where ever they are available. The last seating assumption is that seats only count as "together" if they are adjacent in the same row. This is because in my opinion in most theaters you cannot interact with those infront of and behind you so those seats are not meaningfully together.
+I assumed the venue was rectangular (some number of rows with the same number of seats in each row). This assumption was a mistake, it did not occur to mean until very near the deadline that a theater could be a different shape.
+I assume the implementation is run in a single thread because I am new to threading in Java and did not want to cause problems by incorredctly enfourcing concurrency. (if I revisit this project this will be something I attempt to implement.)
+ 
